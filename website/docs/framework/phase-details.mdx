@@ -1,0 +1,66 @@
+---
+sidebar_position: 3
+title: Phase Details
+description: Deep dive into each phase of the IDD loop
+---
+
+# Phase Details
+
+## Phase 1: Intent
+
+This is the highest-leverage moment in the loop. A well-written intent document replaces user stories, PRDs, and technical specs with a single artifact.
+
+**An Intent Document contains:**
+
+- **Desired outcome:** What the user/system should be able to do after this change
+- **Context:** Why now, what's the strategic driver, what prior art exists
+- **Constraints:** Performance budgets, compatibility requirements, design standards
+- **Acceptance criteria:** Concrete, testable conditions that define "done"
+- **Non-goals:** What this explicitly does NOT try to solve (prevents scope creep)
+- **Open questions:** Acknowledged unknowns that may require exploration
+
+What an Intent Document is NOT: It is not a Jira ticket. It is not a step-by-step implementation plan. It does not prescribe HOW to build. It describes the desired state of the world after the work is done.
+
+## Phase 2: Generate
+
+AI produces candidate implementations. The human's role here is to provide good context, not to micromanage the generation process.
+
+Key practices:
+
+- Give the AI the full intent document, relevant codebase context, and any prior attempts
+- Ask for options when you're not sure of the approach ("generate 2-3 architectures")
+- Don't over-constrain the implementation — let the AI surprise you
+- Use the AI to write the tests first, then the implementation (TDD still works, it's just faster)
+
+## Phase 3: Evaluate
+
+This is where human judgment is irreplaceable. Evaluation is not just "does the code compile." It's a multi-dimensional assessment.
+
+| Dimension | Question | Who Judges |
+|---|---|---|
+| **Correctness** | Does it satisfy the acceptance criteria? | Tests + human spot-check |
+| **Taste** | Does it feel right for our users? | Human only — this is the job |
+| **Simplicity** | Is this the simplest solution that works? | Human + AI (ask it to simplify) |
+| **Coherence** | Does it fit the codebase's existing patterns? | Human context + linter |
+| **Sustainability** | Will this be maintainable in 6 months? | Human judgment |
+| **Community fit** | Will contributors understand and accept this? | Maintainer judgment |
+
+## Phase 4: Decide
+
+Every evaluation ends with a decision. The decision vocabulary is intentionally small:
+
+- **ACCEPT** — Ship it. Merge, release, move on.
+- **REDIRECT** — The approach is wrong but the intent is right. Rewrite the generation prompt with better constraints.
+- **RETHINK** — The intent itself was flawed. Go back to Phase 1 with new understanding.
+- **PARK** — The timing is wrong. Capture learnings and shelve with clear retrieval criteria.
+
+Every decision gets logged with a one-line rationale. This creates a decision trail that is far more valuable than a sprint burndown chart.
+
+## Phase 5: Learn
+
+After each loop, update the team's shared context. This isn't a retrospective — it's a continuous refinement of the context AI needs to produce better outputs next time.
+
+- Update CLAUDE.md / project context files with new patterns, conventions, and decisions
+- Add failing acceptance criteria as regression tests
+- Update the intent template if the same gaps keep appearing
+- Capture taste decisions as design principles ("we prefer X over Y because Z")

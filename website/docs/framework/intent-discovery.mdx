@@ -1,0 +1,44 @@
+---
+sidebar_position: 1
+title: Intent Discovery
+description: How to find and promote intents worth acting on
+---
+
+# Intent Discovery: Feeding the Loop
+
+Before the core loop can run, you need intents worth acting on. Intent Discovery is the ongoing practice of collecting, filtering, and promoting raw signals into intent documents. It's not a phase with a start and end — it runs continuously in the background.
+
+## Sources
+
+| Source | Signal Type | How to Capture |
+|---|---|---|
+| **GitHub Issues** | Bug reports, feature requests, confusion signals (questions that reveal UX gaps) | Tag with "intent-candidate" label when an issue has enough signal to warrant an intent doc |
+| **Discussions / Discord** | Recurring pain points, workaround patterns, "why can't I..." questions | Weekly scan — if 3+ people hit the same wall, it's a candidate |
+| **Dogfooding** | Internal friction: moments where your own team fights the tool | Keep a running "papercuts" list — anything that makes you sigh while using your own product |
+| **Pull Requests** | Patterns in contributed code that reveal missing abstractions or APIs | Note when contributors build the same workaround independently |
+
+## The Propose, Vote, Promote Flow
+
+Anyone on the team can propose an intent at any time. Proposals are cheap — a few sentences, not a full intent document. The team then decides together what gets promoted into the active queue.
+
+**Step 1: Propose.** Anyone writes a lightweight intent proposal: one paragraph describing the desired outcome and why it matters. Drop it in a shared channel or file. No template required at this stage — the goal is low friction.
+
+**Step 2: Vote.** At Intent Review (twice weekly), the team reviews open proposals. Each person gets a simple yes/no/abstain on each proposal. Majority wins. Discussion is timeboxed: 5 minutes per proposal maximum. If it can't be resolved in 5 minutes, it needs more thinking — send it back for a sharper proposal.
+
+**Step 3: Promote.** Approved proposals get assigned an author who writes the full intent document using the template. The author doesn't have to be the proposer — it should be whoever has the most context on the problem.
+
+The key insight: proposals are cheap, intent documents are expensive. The vote gates the expensive work, not the ideation.
+
+## What Makes a Good Proposal
+
+- **Grounded in evidence:** "14 issues mention this" or "I hit this 3 times this week" beats "I think users would like..."
+- **Outcome-oriented:** "Users should be able to X" not "We should add Y feature"
+- **Right-sized:** If the proposal takes 10 minutes to explain, it's probably 3 intents
+- **Honest about uncertainty:** "I'm not sure if this is the right framing" is a feature, not a bug
+
+## Anti-Patterns to Watch For
+
+- **Proposal hoarding:** One person submits 15 proposals per week. Cap it — 3-5 per person per review keeps quality high.
+- **Voting without reading:** If proposals aren't being read before the vote, they're too long or the cadence is wrong.
+- **Phantom consensus:** Everyone votes yes on everything. Introduce a budget: each person can only approve N intents per review cycle.
+- **Source tunnel vision:** Only looking at GitHub issues and ignoring internal friction, or vice versa. Alternate your attention deliberately.
