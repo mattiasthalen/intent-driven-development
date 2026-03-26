@@ -1,0 +1,23 @@
+---
+sidebar_position: 4
+title: Metrics
+description: Metrics that actually tell you something
+---
+
+# Metrics
+
+Traditional metrics like velocity and sprint burndown are meaningless in IDD. These metrics actually tell you something:
+
+| Metric | What It Measures | Healthy Range |
+|---|---|---|
+| **Convergence rate** | Average loops from INTENT to ACCEPT | 1–3 loops |
+| **Redirect ratio** | % of evaluations that trigger REDIRECT vs ACCEPT | 20–40% |
+| **Rethink ratio** | % of intents that get fundamentally rethought | 5–15% |
+| **Intent clarity score** | Team rating of intent doc quality (1–5) | 4.0+ |
+| **Context freshness** | Days since CLAUDE.md was last updated | < 7 days |
+| **Decision latency** | Time from "evaluated" to "decided" | < 4 hours |
+| **Park decay** | % of PARKed items never retrieved | < 30% |
+
+:::warning[What NOT to measure]
+Lines of code, commits per day, story points, velocity, sprint burndown, number of PRs, time spent coding — these measure activity, not progress toward the right answer.
+:::
